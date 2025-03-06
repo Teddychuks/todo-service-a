@@ -7,12 +7,12 @@ import {
   Todo, 
   CreateTodoDto,
   UpdateTodoDto, 
-  TodoById, 
   Empty, 
   TodoServiceClient,
   TODO_PACKAGE_NAME,
   TODO_SERVICE_NAME
-} from '../proto/todo'; 
+} from '../proto/todo';
+import * as grpc from '@grpc/grpc-js';
 
 @Injectable()
 export class RemoteTodoService implements OnModuleInit {
@@ -24,7 +24,8 @@ export class RemoteTodoService implements OnModuleInit {
     options: {
       package: TODO_PACKAGE_NAME,
       protoPath: join(__dirname, '../proto/todo.proto'),
-      url: process.env.REMOTE_SERVICE_URL || 'localhost:5002', // Todo Service B
+      url: process.env.REMOTE_SERVICE_URL || 'localhost:5002',
+      credentials: grpc.credentials.createSsl()  // Todo Service B
     },
   })
   private client: ClientGrpc;
