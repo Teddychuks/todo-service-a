@@ -1,7 +1,6 @@
-import { Body, Controller, Delete, Get, Param, Post} from '@nestjs/common';
+import { Controller, } from '@nestjs/common';
 import { TodoService } from './todo.service';
 import { Todo } from './entities/todo.entity';
-import { DeleteResult, UpdateResult } from 'typeorm';
 import { GrpcMethod } from '@nestjs/microservices';
 import { CreateTodoDto, Empty, TodoById, UpdateTodoDto, Todo as ProtoTodo, TodoList } from '../proto/todo';
 import { Metadata } from '@grpc/grpc-js';

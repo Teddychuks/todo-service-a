@@ -1,21 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-
-@Entity()
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+@Entity('todo')
 export class Todo {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
-  @Column()
+  @Column({ type: 'varchar', length: 255  })
   title: string;
-
-  @Column({ default: false })
+  
+  @Column({ type: 'boolean', default: false })
   completed: boolean;
-
-  toGrpc() {
-    return {
-      id: this.id,
-      title: this.title,
-      completed: this.completed,
-    };
-  }
 }
