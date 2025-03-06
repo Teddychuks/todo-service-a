@@ -13,13 +13,9 @@ service TodoService {
 message Empty {}
 
 message Todo {
-  int32 id = 1;
+  string id = 1;
   string title = 2;
-  string description = 3;
-  bool completed = 4;
-  string created_at = 5;
-  string updated_at = 6;
-  string service_name = 7;
+  bool completed = 3;
 }
 
 message TodoList {
@@ -27,17 +23,15 @@ message TodoList {
 }
 
 message TodoById {
-  int32 id = 1;
+  string id = 1;
 }
 
 message CreateTodoDto {
   string title = 1;
-  string description = 2;
 }
 
 message UpdateTodoDto {
-  int32 id = 1;
+  string id = 1;
   string title = 2;
-  string description = 3;
-  bool completed = 4;
+  bool completed = 3;
 }
